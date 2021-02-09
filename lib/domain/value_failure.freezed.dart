@@ -29,6 +29,7 @@ const $ValueFailure = _$ValueFailureTearOff();
 mixin _$ValueFailure {
   String get errorMsg;
 
+  @JsonKey(ignore: true)
   $ValueFailureCopyWith<ValueFailure> get copyWith;
 }
 
@@ -113,6 +114,7 @@ class _$_ValueFailure implements _ValueFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorMsg);
 
+  @JsonKey(ignore: true)
   @override
   _$ValueFailureCopyWith<_ValueFailure> get copyWith =>
       __$ValueFailureCopyWithImpl<_ValueFailure>(this, _$identity);
@@ -124,5 +126,6 @@ abstract class _ValueFailure implements ValueFailure {
   @override
   String get errorMsg;
   @override
+  @JsonKey(ignore: true)
   _$ValueFailureCopyWith<_ValueFailure> get copyWith;
 }

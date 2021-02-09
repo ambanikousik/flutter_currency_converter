@@ -1,16 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_currency_converter/application/currency_converter/currency_converter_bloc.dart';
 
 class InputScreen extends StatefulWidget {
-  final double origCurrency;
+  final double value;
 
-  const InputScreen({this.origCurrency = 0});
+  const InputScreen({@required this.value});
   @override
   _InputScreenState createState() => _InputScreenState();
 }
 
 class _InputScreenState extends State<InputScreen> {
-  int currInput = 0;
+  double currInput = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    currInput = widget.value;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,13 +55,13 @@ class _InputScreenState extends State<InputScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             numberRow(1, 2, 3),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             numberRow(4, 5, 6),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             numberRow(7, 8, 9),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             finalRow(),
           ],
         ),
@@ -78,7 +87,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Center(
               child: Text(
                 num1.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 35.0,
                   fontWeight: FontWeight.bold,
@@ -101,7 +110,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Center(
               child: Text(
                 num2.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 45.0,
                   fontWeight: FontWeight.bold,
@@ -124,7 +133,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Center(
               child: Text(
                 num3.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 45.0,
                   fontWeight: FontWeight.bold,
@@ -150,7 +159,7 @@ class _InputScreenState extends State<InputScreen> {
               borderRadius: BorderRadius.circular(60.0),
               color: Colors.deepOrange,
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 '.',
                 style: TextStyle(
@@ -176,7 +185,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Center(
               child: Text(
                 0.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 45.0,
                   fontWeight: FontWeight.bold,
@@ -187,6 +196,9 @@ class _InputScreenState extends State<InputScreen> {
         ),
         InkWell(
           onTap: () {
+            BlocProvider.of<CurrencyConverterBloc>(context)
+                .add(SetValue(value: currInput));
+            Navigator.pop(context);
             // CurrencyService().convertCurrency(
             //   widget.convCurrency, widget.origCurrency, currInput, context);
           },
@@ -197,7 +209,7 @@ class _InputScreenState extends State<InputScreen> {
               borderRadius: BorderRadius.circular(60.0),
               color: Colors.deepOrange,
             ),
-            child: Center(
+            child: const Center(
               child: Center(
                 child: Icon(
                   Icons.check,
@@ -212,10 +224,10 @@ class _InputScreenState extends State<InputScreen> {
     );
   }
 
-  calculateNumber(int num) {
+  void calculateNumber(int num) {
     if (currInput == 0) {
       setState(() {
-        currInput = num;
+        currInput = num.toDouble();
       });
     } else {
       setState(() {
