@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_currency_converter/application/currency_converter/currency_converter_bloc.dart';
 import 'package:flutter_currency_converter/domain/i_currency_converter.dart';
 import 'package:flutter_currency_converter/presentation/input_screen.dart';
+import 'package:flutter_material_pickers/helpers/show_scroll_picker.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -59,8 +60,19 @@ class MyHomePage extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          _currencyConverter.getAvailableCurrencies(
-                              currency: state.upCurrency);
+                          final List<String> usStates =
+                              _currencyConverter.getAvailableCurrencies(
+                                  currency: state.downCurrency);
+                          showMaterialScrollPicker(
+                            context: context,
+                            title: "Pick Currency",
+                            items: usStates,
+                            selectedItem: usStates[3],
+                            headerColor: Colors.deepOrangeAccent,
+                            onChanged: (value) {
+                              _currencyBloc.add(SetUpCurrency(currency: value));
+                            },
+                          );
                         },
                         child: const Text(
                           'Set Currency', // Title of Money
@@ -114,8 +126,21 @@ class MyHomePage extends StatelessWidget {
                       const SizedBox(height: 20.0),
                       InkWell(
                         onTap: () {
-                          _currencyConverter.getAvailableCurrencies(
-                              currency: state.upCurrency);
+                          final List<String> usStates =
+                              _currencyConverter.getAvailableCurrencies(
+                                  currency: state.upCurrency);
+
+                          showMaterialScrollPicker(
+                            context: context,
+                            title: "Pick Currency",
+                            items: usStates,
+                            selectedItem: usStates[3],
+                            headerColor: Colors.deepOrangeAccent,
+                            onChanged: (value) {
+                              _currencyBloc
+                                  .add(SetDownCurrency(currency: value));
+                            },
+                          );
                         },
                         child: const Text(
                           'Set Currency', // Title of Money

@@ -46,6 +46,12 @@ class CurrencyConverterBloc
         currencyConverter.setUpValue(value: e.value);
         yield state.copyWith(upValue: e.value, downValue: 0.0);
       }
+    }, setDownCurrency: (e) async* {
+      currencyConverter.setDownCurrency(e.currency);
+      yield state.copyWith(downCurrency: currencyConverter.getDownCurrency());
+    }, setuUpCurrency: (e) async* {
+      currencyConverter.setUpCurrency(e.currency);
+      yield state.copyWith(upCurrency: currencyConverter.getUpCurrency());
     });
   }
 }

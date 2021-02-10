@@ -24,6 +24,20 @@ class _$CurrencyConverterEventTearOff {
   }
 
 // ignore: unused_element
+  SetUpCurrency setuUpCurrency({@required String currency}) {
+    return SetUpCurrency(
+      currency: currency,
+    );
+  }
+
+// ignore: unused_element
+  SetDownCurrency setDownCurrency({@required String currency}) {
+    return SetDownCurrency(
+      currency: currency,
+    );
+  }
+
+// ignore: unused_element
   SetDirection setDirection({@required bool isUp}) {
     return SetDirection(
       isUp: isUp,
@@ -48,6 +62,8 @@ mixin _$CurrencyConverterEvent {
   TResult when<TResult extends Object>({
     @required TResult loadData(),
     @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
     @required TResult setDirection(bool isUp),
     @required TResult setValue(double value),
   });
@@ -55,6 +71,8 @@ mixin _$CurrencyConverterEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult loadData(),
     TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
     TResult setDirection(bool isUp),
     TResult setValue(double value),
     @required TResult orElse(),
@@ -63,6 +81,8 @@ mixin _$CurrencyConverterEvent {
   TResult map<TResult extends Object>({
     @required TResult loadData(LoadData value),
     @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
     @required TResult setDirection(SetDirection value),
     @required TResult setValue(SetValue value),
   });
@@ -70,6 +90,8 @@ mixin _$CurrencyConverterEvent {
   TResult maybeMap<TResult extends Object>({
     TResult loadData(LoadData value),
     TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
     TResult setDirection(SetDirection value),
     TResult setValue(SetValue value),
     @required TResult orElse(),
@@ -132,11 +154,15 @@ class _$LoadData implements LoadData {
   TResult when<TResult extends Object>({
     @required TResult loadData(),
     @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
     @required TResult setDirection(bool isUp),
     @required TResult setValue(double value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return loadData();
@@ -147,6 +173,8 @@ class _$LoadData implements LoadData {
   TResult maybeWhen<TResult extends Object>({
     TResult loadData(),
     TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
     TResult setDirection(bool isUp),
     TResult setValue(double value),
     @required TResult orElse(),
@@ -163,11 +191,15 @@ class _$LoadData implements LoadData {
   TResult map<TResult extends Object>({
     @required TResult loadData(LoadData value),
     @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
     @required TResult setDirection(SetDirection value),
     @required TResult setValue(SetValue value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return loadData(this);
@@ -178,6 +210,8 @@ class _$LoadData implements LoadData {
   TResult maybeMap<TResult extends Object>({
     TResult loadData(LoadData value),
     TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
     TResult setDirection(SetDirection value),
     TResult setValue(SetValue value),
     @required TResult orElse(),
@@ -233,11 +267,15 @@ class _$Convert implements Convert {
   TResult when<TResult extends Object>({
     @required TResult loadData(),
     @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
     @required TResult setDirection(bool isUp),
     @required TResult setValue(double value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return convert();
@@ -248,6 +286,8 @@ class _$Convert implements Convert {
   TResult maybeWhen<TResult extends Object>({
     TResult loadData(),
     TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
     TResult setDirection(bool isUp),
     TResult setValue(double value),
     @required TResult orElse(),
@@ -264,11 +304,15 @@ class _$Convert implements Convert {
   TResult map<TResult extends Object>({
     @required TResult loadData(LoadData value),
     @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
     @required TResult setDirection(SetDirection value),
     @required TResult setValue(SetValue value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return convert(this);
@@ -279,6 +323,8 @@ class _$Convert implements Convert {
   TResult maybeMap<TResult extends Object>({
     TResult loadData(LoadData value),
     TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
     TResult setDirection(SetDirection value),
     TResult setValue(SetValue value),
     @required TResult orElse(),
@@ -293,6 +339,291 @@ class _$Convert implements Convert {
 
 abstract class Convert implements CurrencyConverterEvent {
   const factory Convert() = _$Convert;
+}
+
+/// @nodoc
+abstract class $SetUpCurrencyCopyWith<$Res> {
+  factory $SetUpCurrencyCopyWith(
+          SetUpCurrency value, $Res Function(SetUpCurrency) then) =
+      _$SetUpCurrencyCopyWithImpl<$Res>;
+  $Res call({String currency});
+}
+
+/// @nodoc
+class _$SetUpCurrencyCopyWithImpl<$Res>
+    extends _$CurrencyConverterEventCopyWithImpl<$Res>
+    implements $SetUpCurrencyCopyWith<$Res> {
+  _$SetUpCurrencyCopyWithImpl(
+      SetUpCurrency _value, $Res Function(SetUpCurrency) _then)
+      : super(_value, (v) => _then(v as SetUpCurrency));
+
+  @override
+  SetUpCurrency get _value => super._value as SetUpCurrency;
+
+  @override
+  $Res call({
+    Object currency = freezed,
+  }) {
+    return _then(SetUpCurrency(
+      currency: currency == freezed ? _value.currency : currency as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SetUpCurrency implements SetUpCurrency {
+  const _$SetUpCurrency({@required this.currency}) : assert(currency != null);
+
+  @override
+  final String currency;
+
+  @override
+  String toString() {
+    return 'CurrencyConverterEvent.setuUpCurrency(currency: $currency)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetUpCurrency &&
+            (identical(other.currency, currency) ||
+                const DeepCollectionEquality()
+                    .equals(other.currency, currency)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(currency);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetUpCurrencyCopyWith<SetUpCurrency> get copyWith =>
+      _$SetUpCurrencyCopyWithImpl<SetUpCurrency>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loadData(),
+    @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
+    @required TResult setDirection(bool isUp),
+    @required TResult setValue(double value),
+  }) {
+    assert(loadData != null);
+    assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
+    assert(setDirection != null);
+    assert(setValue != null);
+    return setuUpCurrency(currency);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loadData(),
+    TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
+    TResult setDirection(bool isUp),
+    TResult setValue(double value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setuUpCurrency != null) {
+      return setuUpCurrency(currency);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loadData(LoadData value),
+    @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
+    @required TResult setDirection(SetDirection value),
+    @required TResult setValue(SetValue value),
+  }) {
+    assert(loadData != null);
+    assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
+    assert(setDirection != null);
+    assert(setValue != null);
+    return setuUpCurrency(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loadData(LoadData value),
+    TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
+    TResult setDirection(SetDirection value),
+    TResult setValue(SetValue value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setuUpCurrency != null) {
+      return setuUpCurrency(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetUpCurrency implements CurrencyConverterEvent {
+  const factory SetUpCurrency({@required String currency}) = _$SetUpCurrency;
+
+  String get currency;
+  @JsonKey(ignore: true)
+  $SetUpCurrencyCopyWith<SetUpCurrency> get copyWith;
+}
+
+/// @nodoc
+abstract class $SetDownCurrencyCopyWith<$Res> {
+  factory $SetDownCurrencyCopyWith(
+          SetDownCurrency value, $Res Function(SetDownCurrency) then) =
+      _$SetDownCurrencyCopyWithImpl<$Res>;
+  $Res call({String currency});
+}
+
+/// @nodoc
+class _$SetDownCurrencyCopyWithImpl<$Res>
+    extends _$CurrencyConverterEventCopyWithImpl<$Res>
+    implements $SetDownCurrencyCopyWith<$Res> {
+  _$SetDownCurrencyCopyWithImpl(
+      SetDownCurrency _value, $Res Function(SetDownCurrency) _then)
+      : super(_value, (v) => _then(v as SetDownCurrency));
+
+  @override
+  SetDownCurrency get _value => super._value as SetDownCurrency;
+
+  @override
+  $Res call({
+    Object currency = freezed,
+  }) {
+    return _then(SetDownCurrency(
+      currency: currency == freezed ? _value.currency : currency as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SetDownCurrency implements SetDownCurrency {
+  const _$SetDownCurrency({@required this.currency}) : assert(currency != null);
+
+  @override
+  final String currency;
+
+  @override
+  String toString() {
+    return 'CurrencyConverterEvent.setDownCurrency(currency: $currency)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetDownCurrency &&
+            (identical(other.currency, currency) ||
+                const DeepCollectionEquality()
+                    .equals(other.currency, currency)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(currency);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetDownCurrencyCopyWith<SetDownCurrency> get copyWith =>
+      _$SetDownCurrencyCopyWithImpl<SetDownCurrency>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult loadData(),
+    @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
+    @required TResult setDirection(bool isUp),
+    @required TResult setValue(double value),
+  }) {
+    assert(loadData != null);
+    assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
+    assert(setDirection != null);
+    assert(setValue != null);
+    return setDownCurrency(currency);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult loadData(),
+    TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
+    TResult setDirection(bool isUp),
+    TResult setValue(double value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setDownCurrency != null) {
+      return setDownCurrency(currency);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult loadData(LoadData value),
+    @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
+    @required TResult setDirection(SetDirection value),
+    @required TResult setValue(SetValue value),
+  }) {
+    assert(loadData != null);
+    assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
+    assert(setDirection != null);
+    assert(setValue != null);
+    return setDownCurrency(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult loadData(LoadData value),
+    TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
+    TResult setDirection(SetDirection value),
+    TResult setValue(SetValue value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (setDownCurrency != null) {
+      return setDownCurrency(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetDownCurrency implements CurrencyConverterEvent {
+  const factory SetDownCurrency({@required String currency}) =
+      _$SetDownCurrency;
+
+  String get currency;
+  @JsonKey(ignore: true)
+  $SetDownCurrencyCopyWith<SetDownCurrency> get copyWith;
 }
 
 /// @nodoc
@@ -358,11 +689,15 @@ class _$SetDirection implements SetDirection {
   TResult when<TResult extends Object>({
     @required TResult loadData(),
     @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
     @required TResult setDirection(bool isUp),
     @required TResult setValue(double value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return setDirection(isUp);
@@ -373,6 +708,8 @@ class _$SetDirection implements SetDirection {
   TResult maybeWhen<TResult extends Object>({
     TResult loadData(),
     TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
     TResult setDirection(bool isUp),
     TResult setValue(double value),
     @required TResult orElse(),
@@ -389,11 +726,15 @@ class _$SetDirection implements SetDirection {
   TResult map<TResult extends Object>({
     @required TResult loadData(LoadData value),
     @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
     @required TResult setDirection(SetDirection value),
     @required TResult setValue(SetValue value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return setDirection(this);
@@ -404,6 +745,8 @@ class _$SetDirection implements SetDirection {
   TResult maybeMap<TResult extends Object>({
     TResult loadData(LoadData value),
     TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
     TResult setDirection(SetDirection value),
     TResult setValue(SetValue value),
     @required TResult orElse(),
@@ -485,11 +828,15 @@ class _$SetValue implements SetValue {
   TResult when<TResult extends Object>({
     @required TResult loadData(),
     @required TResult convert(),
+    @required TResult setuUpCurrency(String currency),
+    @required TResult setDownCurrency(String currency),
     @required TResult setDirection(bool isUp),
     @required TResult setValue(double value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return setValue(value);
@@ -500,6 +847,8 @@ class _$SetValue implements SetValue {
   TResult maybeWhen<TResult extends Object>({
     TResult loadData(),
     TResult convert(),
+    TResult setuUpCurrency(String currency),
+    TResult setDownCurrency(String currency),
     TResult setDirection(bool isUp),
     TResult setValue(double value),
     @required TResult orElse(),
@@ -516,11 +865,15 @@ class _$SetValue implements SetValue {
   TResult map<TResult extends Object>({
     @required TResult loadData(LoadData value),
     @required TResult convert(Convert value),
+    @required TResult setuUpCurrency(SetUpCurrency value),
+    @required TResult setDownCurrency(SetDownCurrency value),
     @required TResult setDirection(SetDirection value),
     @required TResult setValue(SetValue value),
   }) {
     assert(loadData != null);
     assert(convert != null);
+    assert(setuUpCurrency != null);
+    assert(setDownCurrency != null);
     assert(setDirection != null);
     assert(setValue != null);
     return setValue(this);
@@ -531,6 +884,8 @@ class _$SetValue implements SetValue {
   TResult maybeMap<TResult extends Object>({
     TResult loadData(LoadData value),
     TResult convert(Convert value),
+    TResult setuUpCurrency(SetUpCurrency value),
+    TResult setDownCurrency(SetDownCurrency value),
     TResult setDirection(SetDirection value),
     TResult setValue(SetValue value),
     @required TResult orElse(),
